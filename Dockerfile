@@ -57,6 +57,8 @@ RUN apt-get update &&  \
     rm -f android-tools-sdk.zip && \
     chown -R root. /opt
 
+# Install scss-lint to check scss code agreements
+RUN gem install scss-lint
 
 # Setup environment
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools

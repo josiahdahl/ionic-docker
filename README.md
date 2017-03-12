@@ -1,4 +1,6 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://tldrlegal.com/license/mit-license#summary) [![Docker Hub](https://img.shields.io/badge/docker-ready-blue.svg)](https://registry.hub.docker.com/u/procoders/ionic) [![](https://badge.imagelayers.io/procoders/ionic:latest.svg)](https://imagelayers.io/?images=procoders/ionic:latest 'Get your own badge on imagelayers.io')
+[![](https://images.microbadger.com/badges/image/procoders/ionic-docker.svg)](https://microbadger.com/images/procoders/ionic-docker "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/procoders/ionic-docker.svg)](https://microbadger.com/images/procoders/ionic-docker "Get your own version badge on microbadger.com")
 
 # Ionic-docker
 A ionic 2 image to be used for local development or for CI process with docker-friendly services like Gitlab CI
@@ -13,30 +15,31 @@ A ionic 2 image to be used for local development or for CI process with docker-f
 - Cordova
 - Android sdk and build tools
 - Ready to run Google Chrome for e2e tests
-- Ruby (usefull for scss-lint)
+- Ruby 
+- scss-lint tool
 
 ## Usage
 
 ```
-docker run -ti --rm -p 8100:8100 -p 35729:35729 procoders/ionic
+docker run -ti --rm -p 8100:8100 -p 35729:35729 procoders/ionic-docker
 ```
 If you have your own ionic sources, you can launch it with:
 
 ```
-docker run -ti --rm -p 8100:8100 -p 35729:35729 -v /path/to/your/ionic-project/:/myApp:rw procoders/ionic
+docker run -ti --rm -p 8100:8100 -p 35729:35729 -v /path/to/your/ionic-project/:/myApp:rw procoders/ionic-docker
 ```
 
 ### Automation
 With this alias:
 
 ```
-alias ionic="docker run -ti --rm -p 8100:8100 -p 35729:35729 --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/.gradle:/root/.gradle -v \$PWD:/myApp:rw procoders/ionic ionic"
+alias ionic="docker run -ti --rm -p 8100:8100 -p 35729:35729 --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/.gradle:/root/.gradle -v \$PWD:/myApp:rw procoders/ionic-docker ionic"
 ```
 
 > Due to a bug in ionic, if you want to use ionic serve, you have to use --net host option :
 
 ```
-alias ionic="docker run -ti --rm --net host --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/.gradle:/root/.gradle -v \$PWD:/myApp:rw procoders/ionic ionic"
+alias ionic="docker run -ti --rm --net host --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/.gradle:/root/.gradle -v \$PWD:/myApp:rw procoders/ionic-docker ionic"
 ```
 
 > Know you need gradle for android, I suggest to mount ~/.gradle into /root/.gradle to avoid downloading the whole planet again and again
