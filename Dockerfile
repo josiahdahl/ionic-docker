@@ -58,7 +58,7 @@ RUN apt-get update &&  \
     chown -R root. /opt
 
 # Install scss-lint to check scss code agreements
-RUN gem install scss-lint
+RUN gem install scss_lint
 
 # Setup environment
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
