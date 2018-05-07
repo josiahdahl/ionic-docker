@@ -1,2 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
+app
+artifacts/*
+!artifacts/.gitkeep
+config.xml
+.env

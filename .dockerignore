@@ -1,0 +1,9 @@
+node_modules
+.idea
+platforms
+plugins
+.sourcemaps
+v2data
+www
+.git
+

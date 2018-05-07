@@ -1,0 +1,18 @@
+version: '2'
+services:
+    application:
+        image: tianon/true
+        volumes:
+            - ./artifacts:/artifacts
+    ionic:
+        build:
+            context: .
+            args:
+                - NODE_VERSION=${NODE_VERSION}
+                - IONIC_VERSION=${IONIC_VERSION}  
+                - CORDOVA_VERSION=${CORDOVA_VERSION}
+                - YARN_VERSION=${YARN_VERSION}
+                - GRADLE_VERSION=${GRADLE_VERSION}
+        tty: true    
+        volumes_from:
+            - application
